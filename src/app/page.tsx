@@ -3,7 +3,8 @@ import TheHumanSection from "@/components/sections/TheHumanSection";
 import OpenSystemsSection from "@/components/sections/OpenSystemsSection";
 import SignalSection from "@/components/sections/SignalSection";
 import EngineeringShowcaseSection from "@/components/sections/EngineeringShowcaseSection";
-import InteractiveEndGameSection from "@/components/sections/InteractiveEndGameSection";
+import ResearchSection from "@/components/sections/ResearchSection";
+import ConclusionSection from "@/components/sections/ConclusionSection";
 
 export default function Home() {
   return (
@@ -13,7 +14,8 @@ export default function Home() {
       <OpenSystemsSection />
       <SignalSection />
       <EngineeringShowcaseSection />
-      <InteractiveEndGameSection />
+      <ResearchSection />
+      <ConclusionSection />
     </main>
   );
 }

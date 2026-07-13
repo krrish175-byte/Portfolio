@@ -346,7 +346,8 @@ export default function TheHumanSection() {
             {/* Roughly positioned over the upper-middle of the portrait */}
             <div 
               ref={trackingBoxRef}
-              className="absolute top-[20%] left-[25%] w-[50%] h-[40%] pointer-events-none z-20"
+              className="absolute pointer-events-none z-20"
+              style={{ top: '20%', left: '25%', width: '50%', height: '40%' }}
             >
               <div ref={el => { if (el) trackingBoxLines.current[0] = el; }} className="absolute top-0 left-0 w-full h-[1px] bg-[#FF5A1F]" />
               <div ref={el => { if (el) trackingBoxLines.current[1] = el; }} className="absolute top-0 right-0 w-[1px] h-full bg-[#FF5A1F]" />

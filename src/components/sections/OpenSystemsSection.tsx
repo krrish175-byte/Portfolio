@@ -39,7 +39,7 @@ const contributions = [
     archive: { x: "-20vw", y: "-25vh", z: -900, rotate: -8, scale: 0.45 }
   },
   {
-    src: "code_diff.png",
+    src: "code_diff_cropped.png",
     leftMeta: ["ARTIFACT / 06555", "TYPE / METRIC", "LANGUAGE / MULTIPLE"],
     rightMeta: ["REPOSITORY / MINDER", "STATE / 1000+ LINES", "SYSTEM / CORE"],
     archive: { x: "20vw", y: "-20vh", z: -1000, rotate: 10, scale: 0.4 }
@@ -166,6 +166,8 @@ export default function OpenSystemsSection() {
 
       // Initial states for cards and internal scanlines
       gsap.set(cardsRef.current, {
+        xPercent: -50,
+        yPercent: -50,
         x: "0vw",
         y: "50vh",        // Swoop up from slightly below
         z: -1500,         // Start deep in the background
@@ -225,8 +227,8 @@ export default function OpenSystemsSection() {
 
         // MERGED text flash inside card
         tl.fromTo(mergedRefs.current[i],
-          { opacity: 0, scale: 0.8 },
-          { opacity: 1, scale: 1, duration: 0.2 },
+          { xPercent: -50, yPercent: -50, opacity: 0, scale: 0.8 },
+          { xPercent: -50, yPercent: -50, opacity: 1, scale: 1, duration: 0.2 },
           hitCenterTime
         )
           // Fade out as the card enters the archive
@@ -316,7 +318,7 @@ export default function OpenSystemsSection() {
           <div ref={parallaxWrapperRef} className="absolute inset-0 w-full h-full" style={{ transformStyle: "preserve-3d" }}>
             {contributions.map((c, i) => {
               const isTallImage = c.src === "organizations.png";
-              const isWideImage = c.src === "code_diff.png";
+              const isWideImage = c.src === "code_diff_cropped.png";
               
               let widthClasses = 'w-[80vw] max-w-3xl';
               if (isTallImage) widthClasses = 'w-[85vw] max-w-sm lg:max-w-md';
@@ -328,7 +330,7 @@ export default function OpenSystemsSection() {
                 <div
                   key={i}
                   ref={el => { if (el) cardsRef.current[i] = el; }}
-                  className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${widthClasses} h-auto rounded-xl overflow-hidden border border-[#EBE5DC]/10 shadow-2xl opacity-0 transform-gpu will-change-transform bg-[#080706]`}
+                  className={`absolute top-1/2 left-1/2 ${widthClasses} h-auto rounded-xl overflow-hidden border border-[#EBE5DC]/10 shadow-2xl opacity-0 transform-gpu will-change-transform bg-[#080706]`}
                   style={{ transformStyle: "preserve-3d" }}
                 >
                 {/* Localized Scanline */}
@@ -340,7 +342,7 @@ export default function OpenSystemsSection() {
                 {/* Localized MERGED text */}
                 <div
                   ref={el => { if (el) mergedRefs.current[i] = el; }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 font-mono text-xl md:text-3xl tracking-[0.4em] text-[#FF5A1F] font-bold opacity-0 drop-shadow-[0_0_10px_rgba(255,90,31,0.8)] bg-[#080706]/80 px-6 py-3 border border-[#FF5A1F]/30 backdrop-blur-sm"
+                  className="absolute top-1/2 left-1/2 z-20 font-mono text-xl md:text-3xl tracking-[0.4em] text-[#FF5A1F] font-bold opacity-0 drop-shadow-[0_0_10px_rgba(255,90,31,0.8)] bg-[#080706]/80 px-6 py-3 border border-[#FF5A1F]/30 backdrop-blur-sm"
                 >
                   MERGED
                 </div>
@@ -348,8 +350,8 @@ export default function OpenSystemsSection() {
                 <Image
                   src={`/assets/hero/Contributions/${c.src}`}
                   alt={`GitHub Contribution ${i}`}
-                  width={isWideImage ? 1920 : 1200}
-                  height={isWideImage ? 1080 : 800}
+                  width={isWideImage ? 2462 : 1200}
+                  height={isWideImage ? 1540 : 800}
                   className={`w-full ${isTallImage ? 'max-h-[60vh] object-contain' : 'h-auto'} grayscale-[0.5] contrast-125 border border-[#EBE5DC]/5`}
                 />
               </div>
