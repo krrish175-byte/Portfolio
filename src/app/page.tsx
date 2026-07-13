@@ -2,7 +2,6 @@ import HeroExperience from "@/components/sections/HeroExperience";
 import TheHumanSection from "@/components/sections/TheHumanSection";
 import OpenSystemsSection from "@/components/sections/OpenSystemsSection";
 import SignalSection from "@/components/sections/SignalSection";
-import EngineeringShowcaseSection from "@/components/sections/EngineeringShowcaseSection";
 import ResearchSection from "@/components/sections/ResearchSection";
 import ConclusionSection from "@/components/sections/ConclusionSection";
 
@@ -13,7 +12,6 @@ export default function Home() {
       <TheHumanSection />
       <OpenSystemsSection />
       <SignalSection />
-      <EngineeringShowcaseSection />
       <ResearchSection />
       <ConclusionSection />
     </main>
